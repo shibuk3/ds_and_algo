@@ -45,6 +45,8 @@ The given binary tree will have between 1 and 3000 nodes.
 Each node's value is between [1, 1000].
 
 ### Solution:
+approach 1:When we are really deleting nodes
+
 used concept of postorder to take required action and problem comes when root(top node of tree) node is also the target node , in that case we cant delete root(may be accessing the node which we deleted) so better equate root to null.
 before delete the target node set the parent child to null, to know whether it is left child or right child use another variable in function
 ```
@@ -65,6 +67,22 @@ public:
     }
     TreeNode* removeLeafNodes(TreeNode* &root, int target) {
         help(root,nullptr,-1,target);
+        return root;
+    }
+};
+```
+approach 2:instead of deleting the node,when we hit target node just set null to its parent's child
+
+```
+class Solution {
+public:
+    TreeNode* removeLeafNodes(TreeNode* &root, int target) {
+        if(root==nullptr) return root;
+        root->left = removeLeafNodes(root->left, target);
+        root->right = removeLeafNodes(root->right, target);
+        if(root->left ==nullptr && root->right==nullptr && root->val==target){
+            return nullptr;
+        }
         return root;
     }
 };
