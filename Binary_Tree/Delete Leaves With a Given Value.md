@@ -47,8 +47,10 @@ Each node's value is between [1, 1000].
 ### Solution:
 approach 1:When we are really deleting nodes
 
-used concept of postorder to take required action and problem comes when root(top node of tree) node is also the target node , in that case we cant delete root(may be accessing the node which we deleted) so better equate root to null.
-before delete the target node set the parent child to null, to know whether it is left child or right child use another variable in function
+used concept of postorder to take required action.
+Before delete the target node set the parent child to null, to know whether it is left child or right child use another variable in function.
+
+Problem comes when root(top node of tree) node is also the target node , in that case we cant delete root(may be accessing the node which we deleted) so better equate root to null instead of deleting it.
 ```
 class Solution {
 public:
