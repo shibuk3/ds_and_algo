@@ -34,7 +34,7 @@ edges[i].length == 2
 All pairs (fromi, toi) are distinct.
 
 ### Solution:
-If we absorb we say start visiting from som random node then , its child can be visited but node which dont have any parent(node with zero in degree) will only visited when 
+If  we start visiting from som random node then , its child can be visited but node which dont have any parent(node with zero in degree) will only visited when 
 we visit that node itself. We will any way have to node with zero in degree.
 
 But if we start visiting node with zero in degree then no. of dfs call will be minimum.
