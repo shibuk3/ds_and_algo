@@ -34,9 +34,10 @@ Output:
 #include <bits/stdc++.h>
 using namespace std;
 bool isValid(vector<int> &arr,int mid,long long m){
-	long long total=0,n=arr.size();
+	long long total=0;
+	int n=arr.size();
 	for(int i=0;i<n;i++){
-		total+=max(0,arr[i]-mid);
+		if(arr[i]>mid) total+=arr[i]-mid;
 		if(total>=m) return true;
 	}
 	return false;
@@ -59,11 +60,11 @@ int main() {
 		int mid=i+(j-i)/2;
 		if(isValid(arr,mid,m)){
 			ans=mid;
-			j=mid+1;
+			i=mid+1;
 		}
 		else j=mid-1;
 	}
-	cout<<ans<<'\n';
+	cout<<ans;
 	return 0;
 } 
 ```
